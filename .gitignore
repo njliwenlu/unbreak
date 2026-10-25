@@ -1,0 +1,16 @@
+node_modules
+dist
+.env
+*.log
+.DS_Store
+runs
+
+# Secrets (only the template is tracked)
+.env.*
+!.env.example
+
+# Local browser profiles and browser-test output
+*chrome-profile*/
+.playwright*/
+playwright-report/
+test-results/

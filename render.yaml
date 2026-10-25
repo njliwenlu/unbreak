@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: unbreak
+    runtime: node
+    plan: free
+    autoDeployTrigger: "off"
+    buildCommand: npm ci --include=dev && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: 22.22.0
+      - key: NODE_ENV
+        value: production
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: ARGON_MODEL
+        value: gemini-4-argon
+      - key: ARGON_VIDEO_FPS
+        value: "8"
+      - key: ARGON_MOCK
+        value: ""
+      - key: RUN_ARCHIVE_DIR
+        value: /tmp/unbreak-runs
